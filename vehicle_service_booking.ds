@@ -1,0 +1,2004 @@
+/*
+ * Author       : dharshini.g1.2024.cse_raj
+ * Generated on : 10-Nov-2026 08:51:29
+ * Version      : 1.0
+ */
+ application "vehicle service booking"
+ {
+ 	date format = "dd-MMM-yyyy"
+ 	time zone = "Asia/Kolkata"
+ 	time format = "24-hr"
+
+ 	forms
+	{
+		form Service_Request_Form
+		{
+			displayname = "Vehicle Service & Repair Request Management"
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Owner_Name
+			(
+    			type = name
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Email_Address
+			(
+    			type = email
+				maxchar = 80
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			must have Pickup_Address
+			(
+    			type = address
+     			capture_coordinates = true
+     			adjust_using_map = true
+     			address_line_1
+     			(
+	     			  type = address_line_1
+	     			  displayname = "Address Line 1"
+     			) 
+     			address_line_2
+     			(
+	     			  type = address_line_2
+	     			  displayname = "Address Line 2"
+     			) 
+     			district_city
+     			(
+	     			  type = district_city
+	     			  displayname = "City / District"
+     			) 
+     			state_province
+     			(
+	     			  type = state_province
+	     			  displayname = "State / Province"
+     			) 
+     			postal_Code
+     			(
+	     			  type = postal_Code
+	     			  displayname = "Postal Code"
+     			) 
+     			country
+     			(
+	     			  type = country
+	     			  displayname = "Country"
+     			) 
+     			latitude
+     			(
+	     			  type = latitude
+	     			  displayname = "latitude"
+	     			 visibility = false
+     			) 
+     			longitude
+     			(
+	     			  type = longitude
+	     			  displayname = "longitude"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			must have Contact_Number
+			(
+    			type = phonenumber
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			must have Vehicle_Registration_Number
+			(
+    			type = text
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Issue_Description
+			(
+    			type = textarea
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Odometer_Reading
+			(
+				type = number
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Preferred_Service_Date
+			(
+    			type = date
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Preferred_Dropoff_Time
+			(
+    			type = time
+				timedisplayoptions = "hh:mm:ss" 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Vehicle_Type
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Hatchback Car","Sedan","SUV","Light Commercial Vehicle (LCV)","Electric Vehicle (EV)","Heavy Truck","Trailer"}
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Service_Type
+			(
+				type = radiobuttons
+				maxchar = 100
+				values = {"General Service","Engine Repair","Transmission Repair","Suspension Repair","Wheel Balancing","Battery Replacement","Radiator/Cooling System Service"}
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Additional_Services_Requested
+			(
+				type = list	
+				values = {"Oil Level Check","Tyre Pressure Check","Wheel Alignment Check","Brake Noise Check","Engine Noise Inspection","Coolant Top-Up"}
+				sortorder = ascending
+				height = 60px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Authorize_Estimate_And_Repair
+			(
+				type = checkboxes	
+				values = {"checked(agreed)","checked(disgree)","Notchecked"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Requires_Pickup_Drop_Service
+			(
+    			type = checkbox
+				initial value = false
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Service_Center_Guidelines_Display
+			(
+    			type = richtext
+				height = 200px
+				toolbar = enable
+				[
+					style, font-color, background-color, link, bullets-and-numbering, 
+					font-size : {1, 2, 3, 4, 5, 6, 7}
+				]
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Insurance_Policy_Portal_URL
+			(
+    			type = url
+				enable  linkname
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Vehicle_Damage_Photo
+			(
+    			type = image
+				source  = file
+				aspect ratio = original
+				camera = primary
+				show gallery = true
+				switch camera = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Service_Discount_Percent
+			(
+    			type = percentage
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Estimated_Service_Cost
+			(
+				type = INR
+				format = commadotindian
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Vehicle_Age_Years
+			(
+				type = decimal
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Service_Request_Submitted_On
+			(
+    			type = datetime
+				timedisplayoptions = "hh:mm:ss"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Previous_Service_History
+			(
+				type = grid
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			Section1
+			(
+				type = section
+				displayname = "Section"
+	 			row = 3
+	 			column = 0   
+				width = medium
+			)
+			Vehicle_Model_Lookup
+			(
+				type = picklist	
+				values  = Service_Request_Form.ID
+    			displayformat = [Preferred_Dropoff_Time]
+				sortorder = ascending
+	 			row = 3
+	 			column = 1   
+				width = medium
+			)
+			Section2
+			(
+				type = section
+				displayname = "Section"
+	 			row = 4
+	 			column = 0   
+				width = medium
+			)
+			Owner_Digital_Signature
+			(
+    			type = signature
+	 			row = 4
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Section3
+			(
+				type = section
+				displayname = "Section"
+	 			row = 5
+	 			column = 0   
+				width = medium
+			)
+			Insurance_Copy_Upload
+			(
+    			type = upload file
+				browse = local_drive
+	 			row = 5
+	 			column = 1   
+				width = medium
+			)
+			Section4
+			(
+				type = section
+				displayname = "Section"
+	 			row = 6
+	 			column = 0   
+				width = medium
+			)
+			Engine_Sound_Voice_Note
+			(
+     			type = audio
+    			duration=60
+	 			row = 6
+	 			column = 1   
+				width = medium
+			)
+			Section5
+			(
+				type = section
+				displayname = "Section"
+	 			row = 7
+	 			column = 0   
+				width = medium
+			)
+			Vehicle_Issue_Video
+			(
+    			type = video
+    			duration=30
+	 			row = 7
+	 			column = 1   
+				width = medium
+			)
+			Section6
+			(
+				type = section
+				displayname = "Section"
+	 			row = 8
+	 			column = 0   
+				width = medium
+			)
+			Service_Request_ID
+			(
+    			type = autonumber
+				start index = 1
+	 			row = 8
+	 			column = 1   
+				width = medium
+			)
+			Section7
+			(
+				type = section
+				displayname = "Section"
+	 			row = 9
+	 			column = 0   
+				width = medium
+			)
+			Net_Service_Cost_Payable
+			(
+				type = decimal
+	 			row = 9
+	 			column = 1   
+				width = medium
+    			Formula_Properties
+    			(
+    						value =  input.Vehicle_Age_Years * input.Estimated_Service_Cost
+    						visibility = false
+    			)
+			)
+			Section8
+			(
+				type = section
+				displayname = "Section"
+	 			row = 10
+	 			column = 0   
+				width = medium
+			)
+			QR_Code
+			(
+				type = qrcode
+				displayname = "Service_Tracking_QR_Code"
+				value = "${Vehicle_Registration_Number}"
+	 			row = 10
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+			blueprint components
+			{
+				stages = {"Requested","In Diagnosis","In Repair","Ready for Pickup","Requeste","completed"}
+			}
+		}
+	}
+	reports
+	{
+		default list VEHICLE_SERVICE_BOOKING_Report
+		{
+			displayName = "VEHICLE SERVICE BOOKING Report"
+			show all rows from Service_Request_Form    
+			(
+				Owner_Name 
+				Email_Address
+				Pickup_Address 
+	 			(
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Contact_Number
+				(
+					displayformat = plainnumber 
+				)
+				Vehicle_Registration_Number
+				Issue_Description
+				Odometer_Reading
+				Preferred_Service_Date
+				Preferred_Dropoff_Time
+				Vehicle_Type
+				Service_Type
+				Additional_Services_Requested
+				Authorize_Estimate_And_Repair
+				Requires_Pickup_Drop_Service
+				Service_Center_Guidelines_Display
+				Insurance_Policy_Portal_URL
+				Vehicle_Damage_Photo
+				Service_Discount_Percent
+				Estimated_Service_Cost
+				Vehicle_Age_Years
+				Service_Request_Submitted_On
+				Vehicle_Model_Lookup
+				Owner_Digital_Signature
+				Insurance_Copy_Upload
+				Engine_Sound_Voice_Note
+				Vehicle_Issue_Video
+				Service_Request_ID
+				Net_Service_Cost_Payable
+				QR_Code as "Service_Tracking_QR_Code"
+			)
+		}
+		list All_Service_Requests_List1
+		{
+			displayName = "All_Service_Requests_List"
+			show all rows from Service_Request_Form    
+			(
+				Owner_Name 
+				Email_Address
+				Pickup_Address 
+	 			(
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Contact_Number
+				(
+					displayformat = plainnumber 
+				)
+				Vehicle_Registration_Number
+				Issue_Description
+				Odometer_Reading
+				Preferred_Service_Date
+				Preferred_Dropoff_Time
+				Vehicle_Type
+				Service_Type
+				Additional_Services_Requested
+				Authorize_Estimate_And_Repair
+				Requires_Pickup_Drop_Service
+				Service_Center_Guidelines_Display
+				Insurance_Policy_Portal_URL
+				Vehicle_Damage_Photo
+				Service_Discount_Percent
+				Estimated_Service_Cost
+				Vehicle_Age_Years
+				Service_Request_Submitted_On
+				Vehicle_Model_Lookup
+				Owner_Digital_Signature
+				Insurance_Copy_Upload
+				Engine_Sound_Voice_Note
+				Vehicle_Issue_Video
+				Service_Request_ID
+				Net_Service_Cost_Payable
+				QR_Code as "Service_Tracking_QR_Code"
+			)
+		}
+		spreadsheet Service_Requests_Spreadsheet
+		{
+			displayName = "Service_Requests_Spreadsheet"
+			show all rows from Service_Request_Form    
+			(
+				Owner_Name 
+				Email_Address
+				Pickup_Address 
+	 			(
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Contact_Number
+				(
+					displayformat = plainnumber 
+				)
+				Vehicle_Registration_Number
+				Issue_Description
+				Odometer_Reading
+				Preferred_Service_Date
+				Preferred_Dropoff_Time
+				Vehicle_Type
+				Service_Type
+				Additional_Services_Requested
+				Authorize_Estimate_And_Repair
+				Requires_Pickup_Drop_Service
+				Service_Center_Guidelines_Display
+				Insurance_Policy_Portal_URL
+				Vehicle_Damage_Photo
+				Service_Discount_Percent
+				Estimated_Service_Cost
+				Vehicle_Age_Years
+				Service_Request_Submitted_On
+				Vehicle_Model_Lookup
+				Owner_Digital_Signature
+				Insurance_Copy_Upload
+				Engine_Sound_Voice_Note
+				Vehicle_Issue_Video
+				Service_Request_ID
+				Net_Service_Cost_Payable
+				QR_Code as "Service_Tracking_QR_Code"
+			)
+		}
+		kanban Service_Status_Kanban
+		{
+			displayName = "Service_Status_Kanban"
+			show all rows from Service_Request_Form    
+			(
+				Owner_Name 
+				Email_Address
+				Pickup_Address 
+	 			(
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Contact_Number
+				(
+					displayformat = plainnumber 
+				)
+				Vehicle_Registration_Number
+				Issue_Description
+				Odometer_Reading
+				Preferred_Service_Date
+				Preferred_Dropoff_Time
+				Vehicle_Type
+				Service_Type
+				Additional_Services_Requested
+				Authorize_Estimate_And_Repair
+				Requires_Pickup_Drop_Service
+				Service_Center_Guidelines_Display
+				Insurance_Policy_Portal_URL
+				Vehicle_Damage_Photo
+				Service_Discount_Percent
+				Estimated_Service_Cost
+				Vehicle_Age_Years
+				Service_Request_Submitted_On
+				Vehicle_Model_Lookup
+				Owner_Digital_Signature
+				Insurance_Copy_Upload
+				Engine_Sound_Voice_Note
+				Vehicle_Issue_Video
+				Service_Request_ID
+				Net_Service_Cost_Payable
+				QR_Code as "Service_Tracking_QR_Code"
+			)
+			options
+			(
+	 			display field = Service_Type
+				sort order  = ascending
+	 		)
+		}
+		calendar Service_Schedule_Calendar
+		{
+			displayName = "Service_Schedule_Calendar"
+			show all rows from Service_Request_Form    
+			(
+				Owner_Digital_Signature
+				Vehicle_Type
+				Owner_Name 
+				Preferred_Dropoff_Time
+				Preferred_Service_Date
+				Odometer_Reading
+				Vehicle_Issue_Video
+				Service_Type
+				Engine_Sound_Voice_Note
+				Pickup_Address 
+	 			(
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Insurance_Copy_Upload
+				Additional_Services_Requested
+				Net_Service_Cost_Payable
+				Service_Request_ID
+				QR_Code as "Service_Tracking_QR_Code"
+				Vehicle_Damage_Photo
+				Insurance_Policy_Portal_URL
+				Authorize_Estimate_And_Repair
+				Service_Center_Guidelines_Display
+				Requires_Pickup_Drop_Service
+				Email_Address
+				Service_Request_Submitted_On
+				Vehicle_Age_Years
+				Estimated_Service_Cost
+				Service_Discount_Percent
+				Vehicle_Model_Lookup
+				Issue_Description
+				Vehicle_Registration_Number
+				Contact_Number
+				(
+					displayformat = plainnumber 
+				)
+				Added_Time as "Added Time"
+			)
+			options
+			(
+				display field = Preferred_Service_Date
+				start date = Added_Time
+				end date = Preferred_Service_Date
+			)
+		}
+		map Owner_Location_Map
+		{
+			displayName = "Owner_Location_Map"
+			show all rows from Service_Request_Form    
+			(
+				Owner_Name 
+				Email_Address
+				Pickup_Address 
+	 			(
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Contact_Number
+				(
+					displayformat = plainnumber 
+				)
+				Vehicle_Registration_Number
+				Issue_Description
+				Odometer_Reading
+				Preferred_Service_Date
+				Preferred_Dropoff_Time
+				Vehicle_Type
+				Service_Type
+				Additional_Services_Requested
+				Authorize_Estimate_And_Repair
+				Requires_Pickup_Drop_Service
+				Service_Center_Guidelines_Display
+				Insurance_Policy_Portal_URL
+				Vehicle_Damage_Photo
+				Service_Discount_Percent
+				Estimated_Service_Cost
+				Vehicle_Age_Years
+				Service_Request_Submitted_On
+				Vehicle_Model_Lookup
+				Owner_Digital_Signature
+				Insurance_Copy_Upload
+				Engine_Sound_Voice_Note
+				Vehicle_Issue_Video
+				Service_Request_ID
+				Net_Service_Cost_Payable
+				QR_Code as "Service_Tracking_QR_Code"
+			)
+			options
+			(
+	 			display field = Pickup_Address
+	 		)
+		}
+		timeline Service_Activity_Timeline
+		{
+			displayName = "Service_Activity_Timeline"
+			show all rows from Service_Request_Form    
+			(
+				Owner_Name 
+				Email_Address
+				Pickup_Address 
+	 			(
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Contact_Number
+				(
+					displayformat = plainnumber 
+				)
+				Vehicle_Registration_Number
+				Issue_Description
+				Odometer_Reading
+				Preferred_Service_Date
+				Preferred_Dropoff_Time
+				Vehicle_Type
+				Service_Type
+				Additional_Services_Requested
+				Authorize_Estimate_And_Repair
+				Requires_Pickup_Drop_Service
+				Service_Center_Guidelines_Display
+				Insurance_Policy_Portal_URL
+				Vehicle_Damage_Photo
+				Service_Discount_Percent
+				Estimated_Service_Cost
+				Vehicle_Age_Years
+				Service_Request_Submitted_On
+				Vehicle_Model_Lookup
+				Owner_Digital_Signature
+				Insurance_Copy_Upload
+				Engine_Sound_Voice_Note
+				Vehicle_Issue_Video
+				Service_Request_ID
+				Net_Service_Cost_Payable
+				QR_Code as "Service_Tracking_QR_Code"
+			)
+			options
+			(
+				display field = Service_Request_Submitted_On
+				start date = Preferred_Service_Date
+				end date = Service_Request_Submitted_On
+			)
+		}
+	}
+	pages
+	{
+		page Service_Command_Center_Page
+		{
+			displayname = "Service_Command_Center_Page."
+			Content="<zml    \t\t\n\t\t\n\t\t\n\t\t\n\t\t\n>\n\t<layout>\n\t<row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<search \n\telementName='Vehicle_Owner_Search_Bar'\n\tpaddingTop = '40px'\n\tpaddingLeft = '80px'\n\tpaddingRight = '80px'\n\tpaddingBottom = '40px'\n\tbgtype = 'none'\n\tbgColor = '#FFFFFF'\n\n\tshape = 'flat'\n\tresultComponent = 'report'\n\tlinkName = 'All_Service_Requests_List1'\n\ttarget = 'new-window'\n\tcriteriaString = 'Additional_Services_Requested == input.searchString'\n\tfontFamily = 'default'\n\tappLinkName = 'thisapp'\n\tstyle = '1'\n\tplaceholder = 'Enter value'\n\n>\n<searchbar color=\"#000000\" bgColor=\"#FFFFFF\" fontSize=\"15px\"\n/></search>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<panel elementName='Command_Center_Main_Panel'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = '#FF4C2F'\n\tsize = '36px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n    borderColor = '#FF4C2F'\n    borderWidth = '0px'\n\n\t  value = 'thisapp.Service_Request_Form.ID.count'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = '#333333'\n\tsize = '16px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\n\n\n    borderColor = '#333333'\n    borderWidth = '0px'\n\n\t  value = 'New services received'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='50%'\n   \t>\n\t<row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<chart \n\telementName='Command_Center_Main_Panel'\n\n\ttype = 'Pie'\n\txtitle = 'x'\n\tytitle = 'y'\n\tbgColor = '#FFFFFF'\n\ttheme = 'theme1'\n\tlegendPos = 'center.top'\n\theightType = 'auto'\n\theightValue = '300px'\n\tappLinkName = 'thisapp'\n\tformLinkName = 'Service_Request_Form'\n\txfield = 'Service_Request_Submitted_On'\n\tyfields = 'value:Service_Request_Submitted_On'\n/>\n\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<dsp id='html_snippet' elementName='Service_Policy_Estimate_Snippet'\n bgColor=\"#FFFFFF\" \n>\n\t<![CDATA[htmlpage html_snippet()\ncontent\n&lt;%{\n\t%&gt;\n&lt;div elName=&apos;zc-component&apos; formLinkName=&apos;&lt;string&gt;&apos; params=&apos;zc_Header=false&amp;amp;zc_SuccMsg=Data Added Successfully!&amp;amp;zc_SubmitVal=Submit&amp;amp;zc_ResetVal=Reset&apos;&gt;Loading Form...&lt;/div&gt;\n&lt;%\n\n}%&gt;]]>\n</dsp>\n</column>\n</row>\n</column><column\n   \t\t width='50%'\n   \t>\n\t<row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<gauge \n\telementName='Daily_Bay_Utilization_Gauge'\n\n\tcolor = '#000000'\n\tsize = '20px'\n\tfontFamily = 'default' \n\tbgColor = '#FFFFFF'\n\ttheme = '#0BD6B1'\n\tdisplayType = 'actual'\n\ttype = '1'\n\tfilledColor = '#0BD6B1'\n\tnonFilledColor = '#F5F5F5'\n\tneedleColor = '#000000'\n\ttargetColor = '#D8D8D8'\n\tvalue = 'thisapp.Service_Request_Form.Net_Service_Cost_Payable.avg'\n>\n<target size=\"15px\" color=\"#7F7F7F\" fontFamily=\"default\" value=\"35000\"\n/><maximumvalue size=\"15px\" color=\"#7F7F7F\" value=\"50000\" \n/>\n</gauge>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<form \n\telementName='Quick_Walkin_Service_Form'\n\n\tappLinkName = 'thisapp'\n\tlinkName = 'Service_Request_Form'\n\theightType = 'auto'\n\turlType = 'none'\n\tzc_SuccMsg = 'Service completed'\n\tzc_Header = 'false'\n\tzc_SubmitVal = 'submit'\n/> \n</column>\n</row>\n</column>\n</row><row>\n\t<column\n   \t\t width='50%'\n   \t>\n\t<panel elementName='Send_ReadyForPickup_Button'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tcolor = 'theme'\n\tsize = '15px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Campaign performance'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<button \n\t\tpaddingTop = '12px'\n\tpaddingLeft = '15px'\n\tpaddingRight = '15px'\n\tpaddingBottom = '12px'\n\n\tcolor = '#FFFFFF'\n\tsize = '16px'\n\ttext ='View Breakdown'\n\t\tbgColor = 'theme'\n/>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column><column\n   \t\t width='50%'\n   \t>\n\t<report \n\telementName='Full_Service_Requests_Report'\n\n\t\tappLinkName = 'thisapp'\n\t\tlinkName = 'VEHICLE_SERVICE_BOOKING_Report'\n\t\n\t\tiszreport = 'false'\n\theightType = 'auto'\n\theightValue = '700'\n/>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<board\n    \n\tbgColor = '#FFFFFF'\n        bgColorType = 'solid'\n\tpadding = '0px'\nelementName='Service_Status_Board'\n    layoutType = 'grid'\n        items = '1'\n    appLinkName = 'thisapp'\n    formLinkName = 'Service_Request_Form'\n    rankBy = 'ID'\n    rankOrder = 'highestToLowest'\n    rankAggregate = 'count'\n    limit = '3'\n    groupBy = 'Service_Type'\n>\n<boardHeader>\n    <pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpaddingTop = '14px'\n\tpaddingLeft = '15px'\n\tpaddingRight = '15px'\n\tpaddingBottom = '14px'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = '#000000'\n\tsize = '17px'\n\tbold = 'true' \n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\n\n\n    borderColor = '#000000'\n    borderWidth = '0px'\n\n\t  value = 'SERVICE'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</boardHeader>\n<boardLayout\n                paddingRight = '15px'\n                paddingBottom = '14px'\n                paddingLeft = '15px'\n                paddingTop = '2px'\n                itemGap = '10px'\n>\n    <pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpaddingLeft = '20px'\n\tpaddingRight = '20px'\n\n    borderColor = '#F2F2F2'\n    borderWidth = '1px'\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n    \tcornerRadius = '12px'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpaddingTop = '10px'\n\tpaddingBottom = '10px'\n\n\t\twidth = '70%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<text \n\n\tcolor = '#000000'\n\tsize = '19px'\n\tbold = 'true' \n\ttype = 'boardData'\n\n\n    lineHeight = '26'\n    numOfLines = '1'\n\n\n\n\n\n\t  value = 'rank'\n>\n</text>\n\n</pc><pc \n\t\n>\n\t<image  \n\t\tmarginLeft = '20px'\n\n\tcolor = '#000000'\n\tbgColor = '#F7F7FB'\n\twidth = '36px'\n\theight = '36px'\n\ttype = 'icon'\n\tvalue = 'education-books-46'\n\tsize = '20px'\n\tcornerRadius = '18px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n>\n\t<text \n\n\tmarginLeft = '15px'\n\tcolor = '#000000'\n\tsize = '16px'\n\ttype = 'boardData'\n\n\n    lineHeight = '22'\n    numOfLines = '1'\n\n\n\n\n\n\t  value = 'groupedField'\n>\n</text>\n\n</pc>\n</pr>\n</pc><pc \n\t\tpaddingTop = '10px'\n\tpaddingBottom = '10px'\n\n\t\twidth = '30%'\n\t\thAlign = 'right'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<text \n\n\tcolor = 'theme'\n\tsize = '17px'\n\tbold = 'true' \n\ttype = 'boardData'\n\n\n    lineHeight = '23'\n    numOfLines = '1'\n\n\n\n\n\n\t  value = 'rankAggregate'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</boardLayout>\n</board>\n</column>\n</row>\n</layout>\n</zml>"
+		}
+	}
+
+
+
+
+		workflow
+		{
+		form
+		{
+			Send_Email_Form_Propertie as "Send Email - Form Properties"
+			{
+				type =  presuccess
+				form = Service_Request_Form
+				on start
+				{
+					actions 
+					{
+						sendmail
+						(
+							from : "zoho.adminuserid"
+							to : Email_Address
+							subject : "vehicle service booking : New entry added"
+							message : "<div>Hello,<br><br>A new entry added in 'Service_Request_Form' form of vehicle service booking application.<br></div>"
+						)
+					}
+				}
+			}
+			On_ServiceRequest_Submit_ as "On_ServiceRequest_Submit_Workflow"
+			{
+				type =  form
+				form = Service_Request_Form
+
+				record event = on add
+
+				on success
+				{
+					actions 
+					{
+						sendmail
+						(
+							from : "zoho.adminuserid"
+							to : "zoho.loginuserid"
+							subject : "Record Added${Service_Request_ID}"
+							message : "<div>${zoho.loginuserid} has added a record in form Vehicle Service &amp; Repair Request Management<br></div>"
+						)
+					}
+				}
+
+			}
+		}
+
+		schedule
+		{
+			Daily_ServiceDate_Reminde as "Daily_ServiceDate_Reminder_Schedule"
+			{
+				type =  schedule
+					status = inactive
+				start = "2026-08-21 18:00:00"
+				frequency = daily
+				time zone = "Asia/Kolkata"
+				on start
+				{
+				}
+			}
+		}
+
+		approval
+		{
+			HighCost_Repair_Approval as "HighCost_Repair_Approval"
+			{
+				type =  approval
+				form = Service_Request_Form[Estimated_Service_Cost > 5000]
+				display fields = [Owner_Name,Email_Address,Pickup_Address,Contact_Number,Vehicle_Registration_Number,Issue_Description,Odometer_Reading]
+				on start
+				{
+				}
+				on level 1
+				{
+					on approve 
+					{
+						actions 
+						{
+							sendmail
+							(
+								from : zoho.loginuserid
+								to : approver.submitter
+								subject : "Approval Request"
+								message : "Your request has been approved."
+							)
+						}
+						actions 
+						{
+							sendmail
+							(
+								from : "zoho.adminuserid"
+								to : "zoho.loginuserid"
+								subject : "${Estimated_Service_Cost}"
+								message : "<div>the high-cost repair estimate has been approved and that work will proceed.<br></div>"
+							)
+						}
+					}
+					on reject
+					{
+
+						actions 
+						{
+							sendmail
+							(
+								from : zoho.loginuserid
+								to : approver.submitter
+								subject : "Approval Request"
+								message : "Your request has been rejected."
+							)
+						}
+						actions 
+						{
+							sendmail
+							(
+								from : "zoho.adminuserid"
+								to : Email_Address
+								subject : "${Estimated_Service_Cost}"
+								message : "<div>Rejected</div>"
+							)
+						}
+					}
+				}
+			}
+		}
+
+		blueprint
+		{
+    			Service_Lifecycle_Bluepri as "Service_Lifecycle_Blueprint"
+    			{
+        			type = Blueprint
+        			form = Service_Request_Form
+        			start
+        			{
+            			start stage = "Requested"
+            			chart data
+            			{
+                			from port : B
+                			to port   : T3
+                			position  : "0 0"
+                			path      : [27.849999999999994,36.84,27.849999999999994,46.84,27.849999999999994,48.42,27.849999999999998,48.42,27.849999999999998,50,27.849999999999998,60]
+            			}
+        			}
+        			stages
+        			{
+           			"Requested"
+           			{
+               			chart data
+               			{
+                   			position : "-26.76605173843112 60"
+               			}
+           			}
+           			"In Diagnosis"
+           			{
+               			chart data
+               			{
+                   			position : "-33 155.45590763449258"
+               			}
+           			}
+           			"In Repair"
+           			{
+               			chart data
+               			{
+                   			position : "-21 258.4559076344926"
+               			}
+           			}
+           			"Ready for Pickup"
+           			{
+               			chart data
+               			{
+                   			position : "-40 361.4559076344926"
+               			}
+           			}
+           			"completed"
+           			{
+               			chart data
+               			{
+                   			position : "-23 460.4559076344926"
+               			}
+           			}
+        			}
+        			transitions
+        			{
+    				To_Completed as "To Completed"
+    				{
+         				type = normal
+         				from stage = "Ready for Pickup"
+         				to stage = "completed"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : B3
+             				to port   : T3
+             				path      : [33.99202830093111,413.0637374297142,33.99202830093111,423.0637374297142,33.99202830093111,436.7598225321034,31.46554667251315,436.7598225321034,31.46554667251315,450.4559076344926,31.46554667251315,460.4559076344926]
+        				}
+  				}
+    				To_Diagnosis as "To Diagnosis"
+    				{
+         				type = normal
+         				from stage = "Requested"
+         				to stage = "In Diagnosis"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : B3
+             				to port   : T3
+             				path      : [27.849999999999998,111.60782979522162,27.849999999999998,121.60782979522162,27.849999999999998,133.5318687148571,26.379532878567836,133.5318687148571,26.379532878567836,145.45590763449258,26.379532878567836,155.45590763449258]
+        				}
+  				}
+    				To_Ready_for_Pickup as "To Ready for Pickup"
+    				{
+         				type = normal
+         				from stage = "In Repair"
+         				to stage = "Ready for Pickup"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : B3
+             				to port   : T3
+             				path      : [28.19455057876315,310.0637374297142,28.19455057876315,320.0637374297142,28.19455057876315,335.7598225321034,33.99202830093111,335.7598225321034,33.99202830093111,351.4559076344926,33.99202830093111,361.4559076344926]
+        				}
+  				}
+    				To_Repair as "To Repair"
+    				{
+         				type = normal
+         				from stage = "In Diagnosis"
+         				to stage = "In Repair"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : B3
+             				to port   : T3
+             				path      : [26.379532878567836,207.0637374297142,26.379532878567836,217.0637374297142,26.379532878567836,232.75982253210339,28.19455057876315,232.75982253210339,28.19455057876315,248.45590763449258,28.19455057876315,258.4559076344926]
+        				}
+  				}
+        			}
+    			}
+		}
+
+
+		functions
+		{
+			service_status as "service_status"
+			{
+				type =  functions
+				form = Service_Request_Form
+				execution type = for each record	
+				on start
+				{
+				}
+			}
+		}
+	}
+	share_settings
+	{
+			"Read"
+			{
+				name = "Read"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have read permission for all components\n"
+			}
+			"Write"
+			{
+				name = "Write"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have write permission for all components\n"
+			}
+			"Developer"
+			{
+				name = "Developer"
+				type = Developer
+				permissions = {Chat:false, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Developer Profile\n"
+			}
+			"Administrator"
+			{
+				name = "Administrator"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have all the permissions.\n"
+			}
+			"Customer"
+			{
+				name = "Customer"
+				type = Customer_Portal
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This is the default profile having only add and view permission.\n"
+			}
+			roles
+			{
+				"CEO"
+				{
+					description = "User belonging to this role can access data of all other users."
+				}
+			}
+	}
+
+
+	web
+	{
+		forms
+		{
+			form Service_Request_Form
+			{
+				label placement = left
+			}
+		}
+		reports
+		{
+			report VEHICLE_SERVICE_BOOKING_Report
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+						datablock1
+						(
+							fields
+							(
+								Owner_Name
+								Email_Address
+								Pickup_Address
+								Contact_Number
+								Vehicle_Registration_Number
+								Issue_Description
+								Odometer_Reading
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Owner_Name
+								Email_Address
+								Pickup_Address
+								Contact_Number
+								Vehicle_Registration_Number
+								Issue_Description
+								Odometer_Reading
+								Preferred_Service_Date
+								Preferred_Dropoff_Time
+								Vehicle_Type
+								Service_Type
+								Additional_Services_Requested
+								Authorize_Estimate_And_Repair
+								Requires_Pickup_Drop_Service
+								Service_Center_Guidelines_Display
+								Insurance_Policy_Portal_URL
+								Vehicle_Damage_Photo
+								Service_Discount_Percent
+								Estimated_Service_Cost
+								Vehicle_Age_Years
+								Service_Request_Submitted_On
+								Vehicle_Model_Lookup
+								Owner_Digital_Signature
+								Insurance_Copy_Upload
+								Engine_Sound_Voice_Note
+								Vehicle_Issue_Video
+								Service_Request_ID
+								Net_Service_Cost_Payable
+								QR_Code as "Service_Tracking_QR_Code"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report All_Service_Requests_List1
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+						datablock1
+						(
+							fields
+							(
+								Owner_Name
+								Vehicle_Registration_Number
+								Vehicle_Type
+								Service_Type
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Owner_Name
+								Email_Address
+								Pickup_Address
+								Contact_Number
+								Vehicle_Registration_Number
+								Issue_Description
+								Odometer_Reading
+								Preferred_Service_Date
+								Preferred_Dropoff_Time
+								Vehicle_Type
+								Service_Type
+								Additional_Services_Requested
+								Authorize_Estimate_And_Repair
+								Requires_Pickup_Drop_Service
+								Service_Center_Guidelines_Display
+								Insurance_Policy_Portal_URL
+								Vehicle_Damage_Photo
+								Service_Discount_Percent
+								Estimated_Service_Cost
+								Vehicle_Age_Years
+								Service_Request_Submitted_On
+								Vehicle_Model_Lookup
+								Owner_Digital_Signature
+								Insurance_Copy_Upload
+								Engine_Sound_Voice_Note
+								Vehicle_Issue_Video
+								Service_Request_ID
+								Net_Service_Cost_Payable
+								QR_Code as "Service_Tracking_QR_Code"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Service_Requests_Spreadsheet
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+		 				type = -3
+						datablock1
+						(
+							layout type = -3
+							fields
+							(
+								Owner_Name
+								Email_Address
+								Pickup_Address
+								Contact_Number
+								Vehicle_Registration_Number
+								Issue_Description
+								Odometer_Reading
+								Preferred_Service_Date
+								Preferred_Dropoff_Time
+								Vehicle_Type
+								Service_Type
+								Additional_Services_Requested
+								Authorize_Estimate_And_Repair
+								Requires_Pickup_Drop_Service
+								Service_Center_Guidelines_Display
+								Insurance_Policy_Portal_URL
+								Vehicle_Damage_Photo
+								Service_Discount_Percent
+								Estimated_Service_Cost
+								Vehicle_Age_Years
+								Service_Request_Submitted_On
+								Vehicle_Model_Lookup
+								Owner_Digital_Signature
+								Insurance_Copy_Upload
+								Engine_Sound_Voice_Note
+								Vehicle_Issue_Video
+								Service_Request_ID
+								Net_Service_Cost_Payable
+								QR_Code as "Service_Tracking_QR_Code"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Owner_Name
+								Email_Address
+								Pickup_Address
+								Contact_Number
+								Vehicle_Registration_Number
+								Issue_Description
+								Odometer_Reading
+								Preferred_Service_Date
+								Preferred_Dropoff_Time
+								Vehicle_Type
+								Service_Type
+								Additional_Services_Requested
+								Authorize_Estimate_And_Repair
+								Requires_Pickup_Drop_Service
+								Service_Center_Guidelines_Display
+								Insurance_Policy_Portal_URL
+								Vehicle_Damage_Photo
+								Service_Discount_Percent
+								Estimated_Service_Cost
+								Vehicle_Age_Years
+								Service_Request_Submitted_On
+								Vehicle_Model_Lookup
+								Owner_Digital_Signature
+								Insurance_Copy_Upload
+								Engine_Sound_Voice_Note
+								Vehicle_Issue_Video
+								Service_Request_ID
+								Net_Service_Cost_Payable
+								QR_Code as "Service_Tracking_QR_Code"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Service_Status_Kanban
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+		 				type = 1
+						datablock1
+						(
+							layout type = 1
+							fields
+							(
+								Owner_Name
+								Pickup_Address
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Owner_Name
+								Email_Address
+								Pickup_Address
+								Contact_Number
+								Vehicle_Registration_Number
+								Issue_Description
+								Odometer_Reading
+								Preferred_Service_Date
+								Preferred_Dropoff_Time
+								Vehicle_Type
+								Service_Type
+								Additional_Services_Requested
+								Authorize_Estimate_And_Repair
+								Requires_Pickup_Drop_Service
+								Service_Center_Guidelines_Display
+								Insurance_Policy_Portal_URL
+								Vehicle_Damage_Photo
+								Service_Discount_Percent
+								Estimated_Service_Cost
+								Vehicle_Age_Years
+								Service_Request_Submitted_On
+								Vehicle_Model_Lookup
+								Owner_Digital_Signature
+								Insurance_Copy_Upload
+								Engine_Sound_Voice_Note
+								Vehicle_Issue_Video
+								Service_Request_ID
+								Net_Service_Cost_Payable
+								QR_Code as "Service_Tracking_QR_Code"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Service_Schedule_Calendar
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+		 				type = 1
+						datablock1
+						(
+							layout type = 1
+							fields
+							(
+								Vehicle_Type
+								Preferred_Dropoff_Time
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Owner_Digital_Signature
+								Vehicle_Type
+								Preferred_Dropoff_Time
+								Preferred_Service_Date
+								Odometer_Reading
+								Vehicle_Issue_Video
+								Service_Type
+								Engine_Sound_Voice_Note
+								Insurance_Copy_Upload
+								Additional_Services_Requested
+								Net_Service_Cost_Payable
+								Owner_Name
+								Service_Request_ID
+								QR_Code as "Service_Tracking_QR_Code"
+								Vehicle_Damage_Photo
+								Insurance_Policy_Portal_URL
+								Authorize_Estimate_And_Repair
+								Service_Center_Guidelines_Display
+								Pickup_Address
+								Requires_Pickup_Drop_Service
+								Email_Address
+								Service_Request_Submitted_On
+								Vehicle_Age_Years
+								Estimated_Service_Cost
+								Service_Discount_Percent
+								Vehicle_Model_Lookup
+								Issue_Description
+								Vehicle_Registration_Number
+								Contact_Number
+								Added_Time as "Added Time"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Owner_Location_Map
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+		 				type = 1
+						datablock1
+						(
+							layout type = 1
+							fields
+							(
+								Owner_Name
+								Pickup_Address
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Owner_Name
+								Email_Address
+								Pickup_Address
+								Contact_Number
+								Vehicle_Registration_Number
+								Issue_Description
+								Odometer_Reading
+								Preferred_Service_Date
+								Preferred_Dropoff_Time
+								Vehicle_Type
+								Service_Type
+								Additional_Services_Requested
+								Authorize_Estimate_And_Repair
+								Requires_Pickup_Drop_Service
+								Service_Center_Guidelines_Display
+								Insurance_Policy_Portal_URL
+								Vehicle_Damage_Photo
+								Service_Discount_Percent
+								Estimated_Service_Cost
+								Vehicle_Age_Years
+								Service_Request_Submitted_On
+								Vehicle_Model_Lookup
+								Owner_Digital_Signature
+								Insurance_Copy_Upload
+								Engine_Sound_Voice_Note
+								Vehicle_Issue_Video
+								Service_Request_ID
+								Net_Service_Cost_Payable
+								QR_Code as "Service_Tracking_QR_Code"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Service_Activity_Timeline
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+		 				type = 1
+						datablock1
+						(
+							layout type = 1
+							fields
+							(
+								Owner_Name
+								Pickup_Address
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Owner_Name
+								Email_Address
+								Pickup_Address
+								Contact_Number
+								Vehicle_Registration_Number
+								Issue_Description
+								Odometer_Reading
+								Preferred_Service_Date
+								Preferred_Dropoff_Time
+								Vehicle_Type
+								Service_Type
+								Additional_Services_Requested
+								Authorize_Estimate_And_Repair
+								Requires_Pickup_Drop_Service
+								Service_Center_Guidelines_Display
+								Insurance_Policy_Portal_URL
+								Vehicle_Damage_Photo
+								Service_Discount_Percent
+								Estimated_Service_Cost
+								Vehicle_Age_Years
+								Service_Request_Submitted_On
+								Vehicle_Model_Lookup
+								Owner_Digital_Signature
+								Insurance_Copy_Upload
+								Engine_Sound_Voice_Note
+								Vehicle_Issue_Video
+								Service_Request_ID
+								Net_Service_Cost_Payable
+								QR_Code as "Service_Tracking_QR_Code"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+		}
+		menu
+		{
+			space Space
+			{
+				displayname = "Space"
+				icon = "objects-spaceship"
+
+				section VEHICLE_SERVICE_BOOKING
+				{
+					displayname = "VEHICLE SERVICE BOOKING"
+					icon = "travel-church"
+					form  Service_Request_Form
+					{
+						icon = "travel-church"
+					}
+					report VEHICLE_SERVICE_BOOKING_Report
+					{
+						icon = "tech-desktop"
+					}
+					report All_Service_Requests_List1
+					{
+						icon = "tech-2-l-search"
+					}
+					report Service_Requests_Spreadsheet
+					{
+						icon = "tech-2-l-search"
+					}
+					report Service_Status_Kanban
+					{
+						icon = "tech-2-l-search"
+					}
+					report Service_Schedule_Calendar
+					{
+						icon = "tech-2-l-search"
+					}
+					report Owner_Location_Map
+					{
+						icon = "tech-2-l-search"
+					}
+					report Service_Activity_Timeline
+					{
+						icon = "tech-2-l-search"
+					}
+				}
+				section App_Preferences
+				{
+					displayname = "App Preferences"
+					icon = "design-app"
+					systemcomponent
+					{
+						type = localization
+						displayname = "Language Selection"
+						icon = "education-language"
+					}
+					systemcomponent
+					{
+						type = connection
+						displayname = "Integrations"
+						icon = "tech-2-connection"
+					}
+				}
+				section SharedAnalytics_Section
+				{
+					type = shared_user_report_section
+					displayname = "Reports"
+					icon = "business-chart-bar-33"
+				}
+				section Approvals
+				{
+					displayname = "Approvals"
+					icon = "ui-2-hourglass"
+					systemcomponent
+					{
+						type = approval
+						approval status = pending
+						displayname = "Pending Tasks"
+						icon = "ui-2-hourglass"
+					}
+					systemcomponent
+					{
+						type = approval
+						approval status = completed
+						displayname = "Completed Tasks"
+						icon = "design-todo"
+					}
+				}
+				section Service_Command_Center_Page
+				{
+					displayname = "Service_Command_Center_Page."
+					icon = "tech-desktop"
+					page Service_Command_Center_Page
+					{
+						icon = "tech-desktop"
+					}
+				}
+			}
+			preference
+			{
+				icon
+				{
+					style = outline
+				}
+			}
+		}
+		customize
+		{
+			layout
+			{
+				theme = "theme_10"
+			}
+			font = "lato"
+			color options
+			{
+				color = "11"
+			}
+			logo
+			{
+				preference = "app_icon"
+				placement = "left"
+			}
+		}
+	}
+	phone
+	{
+		forms
+		{
+			form Service_Request_Form
+			{
+				label placement = auto
+			}
+		}
+		customize
+		{
+			layout = twocolumn
+			font = "default"
+			style = "1"
+			color options
+			{
+				color = chryslerpurple
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	tablet
+	{
+		forms
+		{
+			form Service_Request_Form
+			{
+				label placement = auto
+			}
+		}
+		customize
+		{
+			layout = slidingpane
+			font = "default"
+			style = "1"
+			color options
+			{
+				color = darkgrey
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	translation
+{
+{"Language_Settings":{"LANGAGUE_WITH_LOGIN":"browser"}}
+}
+}
